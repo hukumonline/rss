@@ -36,8 +36,8 @@ class IndexController extends Zend_Controller_Action
 			if (Pandamp_Lib_Formater::thumb_exists($pict . ".png")) { $thumb = $pict . ".png"; }
 
 			$entries[$content]['title'] 		= App_Model_Show_CatalogAttribute::show()->getCatalogAttributeValue($row['guid'],'fixedTitle');
-			$entries[$content]['link']			= ROOT_URL.'/berita/baca/'.$row['guid'].'/'.$row['shortTitle'];
-			$entries[$content]['guid']			= ROOT_URL.'/berita/baca/'.$row['guid'].'/'.$row['shortTitle'];
+			$entries[$content]['link']			= 'http://www.hukumonline.com/berita/baca/'.$row['guid'].'/'.$row['shortTitle'];
+			$entries[$content]['guid']			= 'http://www.hukumonline.com/berita/baca/'.$row['guid'].'/'.$row['shortTitle'];
 			$entries[$content]['pubDate']		= strtotime($row['publishedDate']);
 			
 			if (!empty($thumb)) {
@@ -62,8 +62,8 @@ class IndexController extends Zend_Controller_Action
 		}
 		
 		$feed = Zend_Feed::importArray(array(
-	        'title'   		=> 'Hukumonline Warta',
-	        'link'    		=> ROOT_URL,
+	        'title'   		=> 'Hukumonline Berita',
+	        'link'    		=> 'http://www.hukumonline.com',
 	        'description'	=> 'hukumonline.com sindikasi',
 	        'image'			=> $cdn['static']['images'].'/logo.gif',
 	        'charset' 		=> 'UTF-8',
