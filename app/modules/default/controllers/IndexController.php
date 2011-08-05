@@ -38,7 +38,7 @@ class IndexController extends Zend_Controller_Action
 			$entries[$content]['title'] 		= App_Model_Show_CatalogAttribute::show()->getCatalogAttributeValue($row['guid'],'fixedTitle');
 			$entries[$content]['link']			= 'http://www.hukumonline.com/berita/baca/'.$row['guid'].'/'.$row['shortTitle'];
 			$entries[$content]['guid']			= 'http://www.hukumonline.com/berita/baca/'.$row['guid'].'/'.$row['shortTitle'];
-			$entries[$content]['pubDate']		= strtotime($row['publishedDate']);
+			$entries[$content]['lastUpdate']	= strtotime($row['publishedDate']);
 			
 			if (!empty($thumb)) {
 				$d = "<img src=\"".$thumb."\" align=\"left\" hspace=\"7\" width=\"100\" />".$this->limitword(2,App_Model_Show_CatalogAttribute::show()->getCatalogAttributeValue($row['guid'],'fixedContent'));	
